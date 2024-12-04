@@ -21,4 +21,8 @@ public class WeekCategory {
             throw new CategoryException(MAX_DUPLICATED_EXCEPTION);
         }
     }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
 }

@@ -9,4 +9,8 @@ public class CantEats {
     public CantEats(List<String> cantEats) {
         this.cantEats = cantEats;
     }
+
+    public boolean isIn(String menu) {
+        return cantEats.contains(menu);
+    }
 }

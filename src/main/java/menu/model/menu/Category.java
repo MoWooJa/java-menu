@@ -1,5 +1,6 @@
 package menu.model.menu;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -49,5 +50,9 @@ public enum Category {
             }
         }
         throw new IllegalArgumentException(INVALID_RANDOM_NUMBER);
+    }
+
+    public String getMenu() {
+        return Randoms.shuffle(menus).get(0);
     }
 }

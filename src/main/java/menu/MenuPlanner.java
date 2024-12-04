@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 import menu.exception.CategoryException;
+import menu.model.Coaches;
 import menu.model.menu.Category;
 import menu.model.menu.WeekCategory;
 
@@ -15,9 +16,10 @@ public class MenuPlanner {
     public static final int MAX_CATEGORY_CODE = 5;
     public static final int MAX_WEEK = 5;
 
-    public void recommendMenu() {
+    public void getMenuPlan(Coaches coaches) {
         WeekCategory weekCategory = retryHandle(this::getWeekCategories);
-
+        List<Category> categories = weekCategory.getCategories();
+        coaches.recommendedMenu(categories);
     }
 
     private WeekCategory getWeekCategories() {
