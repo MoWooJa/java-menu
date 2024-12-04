@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Names {
 
-    List<String> names;
+    private final List<String> names;
 
     public Names(List<String> names) {
         this.names = names;

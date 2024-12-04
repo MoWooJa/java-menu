@@ -1,4 +1,4 @@
-package menu.model;
+package menu.model.parser;
 
 import java.util.HashSet;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import menu.exception.ExceptionAnnounce;
 import menu.exception.InputException;
+import menu.model.Names;
 
 public class InputNamesParser {
 
@@ -25,6 +26,8 @@ public class InputNamesParser {
     private List<String> validate(String namesInput) {
         validateInValidCharacter(namesInput);
         List<String> names = List.of(namesInput.split(SEPARATOR));
+        System.out.println(names.toString());
+        System.out.println(names.size());
         validateNamesSize(names);
         validateDuplicatedNames(names);
         return names.stream()
