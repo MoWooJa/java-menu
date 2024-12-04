@@ -15,6 +15,7 @@ public class InputView {
     }
 
     public String getInput() {
+        System.out.println();
         showRequestMessage();
         return Console.readLine();
     }

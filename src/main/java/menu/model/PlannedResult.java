@@ -11,4 +11,12 @@ public class PlannedResult {
         this.plannedCategory = plannedCategory;
         this.coachsPlannedMenu = coachsPlannedMenu;
     }
+
+    public String getPlannedCategory() {
+        return plannedCategory;
+    }
+
+    public List<String> getCoachsPlannedMenu() {
+        return coachsPlannedMenu;
+    }
 }

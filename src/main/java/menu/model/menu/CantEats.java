@@ -11,6 +11,9 @@ public class CantEats {
     }
 
     public boolean isIn(String menu) {
+        if (cantEats == null) {
+            return false;
+        }
         return cantEats.contains(menu);
     }
 }
