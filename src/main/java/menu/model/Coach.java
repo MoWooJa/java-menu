@@ -8,6 +8,7 @@ import menu.model.menu.Category;
 
 public class Coach {
 
+    public static final String SEPARATOR = " | ";
     private final String name;
     private final CantEats cantEats;
     private List<String> recommendedMenus;
@@ -37,5 +38,14 @@ public class Coach {
             menu = category.getMenu();
         }
         return menu;
+    }
+
+    public String getPlannedMenu() {
+        StringBuilder result = new StringBuilder();
+        result.append(name);
+        for (String recommendedMenu : recommendedMenus) {
+            result.append(SEPARATOR).append(recommendedMenu);
+        }
+        return result.toString();
     }
 }
