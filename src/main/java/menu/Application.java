@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -14,8 +13,20 @@ public class Application {
 
 
         outputView.printWelcomeMessage();
-        String nameStr = inputView.getName();
-        List<Name> names = Parser.parse(nameStr);
+        String nameStr;
+        List<Name> names;
+        while (true) {
+            try {
+                nameStr = inputView.getName();
+                names = Parser.parse(nameStr);
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+
+            }
+
+        }
+
 
         //미리 카테고리 5일치를 정함..
         List<String> categories = new ArrayList<>();
@@ -50,8 +61,8 @@ public class Application {
             fixedMenus.put(name, new ArrayList<>());
         }
 
-        for (Name name : names) {
-            for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
+            for (Name name : names) {
                 String category;
                 List<String> menus;
                 List<String> shuffledMenu;
@@ -90,7 +101,7 @@ public class Application {
 
             }
         }
-        outputView.displayFixedMenu(fixedMenus,categories);
+        outputView.displayFixedMenu(fixedMenus, categories);
 
 
     }
@@ -98,12 +109,14 @@ public class Application {
     static class InputView {
         public String getName() {
             System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
-            return Console.readLine();
+            String input = Console.readLine();
+            return input;
         }
 
         public String getHateMenu(Name name) {
             System.out.println(name.getName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
-            return Console.readLine();
+            String input = Console.readLine();
+            return input;
         }
     }
 
@@ -112,7 +125,7 @@ public class Application {
             System.out.println("점심 메뉴 추천을 시작합니다.");
         }
 
-        public void displayFixedMenu(Map<Name, List<String>> fixedMenu,List<String> categories) {
+        public void displayFixedMenu(Map<Name, List<String>> fixedMenu, List<String> categories) {
             System.out.println("메뉴 추천 결과입니다.");
             System.out.println("[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]");
             StringBuilder builder = new StringBuilder();

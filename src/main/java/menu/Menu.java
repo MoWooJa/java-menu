@@ -32,6 +32,7 @@ public enum Menu {
     짜장면("짜장면",MenuCategory.CHINESE),
     짬뽕("짬뽕",MenuCategory.CHINESE),
     마파두부("마파두부",MenuCategory.CHINESE),
+    탕수육("탕수육",MenuCategory.CHINESE),
     토마토달걀볶음("토마토 달걀볶음",MenuCategory.CHINESE),
     고추잡채("고추잡채",MenuCategory.CHINESE),
 
