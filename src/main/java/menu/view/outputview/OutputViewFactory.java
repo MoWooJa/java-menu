@@ -1,7 +1,6 @@
 package menu.view.outputview;
 
 public class OutputViewFactory {
-    public static final String INVALID_TYPE = "잘못된 InputViewType";
 
     private OutputViewFactory() {
     }
