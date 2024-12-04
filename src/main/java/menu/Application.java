@@ -11,7 +11,6 @@ public class Application {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
 
-
         outputView.printWelcomeMessage();
         String nameStr;
         List<Name> names;
@@ -20,6 +19,9 @@ public class Application {
                 nameStr = inputView.getName();
                 names = Parser.parse(nameStr);
                 break;
+            } catch (IllegalArgumentException e) {
+                // 예외 발생 시 메시지 출력 및 재시도
+                System.out.println("에러: " + e.getMessage());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
 
@@ -53,12 +55,22 @@ public class Application {
 
         for (Name name : names) {
             name.displayName();
-            String hateMenuStr = inputView.getHateMenu(name);
-            //메뉴 이름 검증 필요
-            List<String> hateMenuItems = Parser.parseHateMenu(hateMenuStr);
+            String hateMenuStr;
+            List<String> hateMenuItems = new ArrayList<>();
+            while (true) {
+                try {
+                    hateMenuStr = inputView.getHateMenu(name);
+                    //메뉴 이름 검증 필요
+                    hateMenuItems = Parser.parseHateMenu(hateMenuStr);
+                    break;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
             //map에 들어갔다고 가정
             hateMenus.put(name, hateMenuItems);
             fixedMenus.put(name, new ArrayList<>());
+
         }
 
         for (int i = 0; i < 5; i++) {
