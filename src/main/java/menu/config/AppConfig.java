@@ -1,9 +1,14 @@
 package menu.config;
 
+import menu.controller.MenuController;
+import menu.service.MenuService;
+import menu.view.InputView;
+import menu.view.OutputView;
+
 public class AppConfig {
 
-    public OncallController oncallController() {
-        return new OncallController(inputView(), outputView(), domainService());
+    public MenuController menuController() {
+        return new MenuController(inputView(), outputView(), menuService());
     }
 
     private InputView inputView() {
@@ -14,12 +19,9 @@ public class AppConfig {
         return new OutputView();
     }
 
-    private DomainService domainService() {
-        return new DomainService(domainFactory());
+    private MenuService menuService() {
+        return new MenuService();
     }
 
-    private DomainFactory domainFactory() {
-        return new DomainFactory();
-    }
 
 }
