@@ -1,5 +1,6 @@
 package menu.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +12,7 @@ public class Coach {
     public static final String SEPARATOR = " | ";
     private final String name;
     private final CantEats cantEats;
-    private List<String> recommendedMenus;
+    private List<String> recommendedMenus = new ArrayList<>();
 
     public Coach(String name, CantEats cantEats) {
         this.name = name;
@@ -23,6 +24,7 @@ public class Coach {
         for (Category category : categories) {
             String menu = category.getMenu();
             menu = getMenu(category, menuPool, menu);
+            menuPool.add(menu);
             recommendedMenus.add(menu);
         }
     }
@@ -32,7 +34,7 @@ public class Coach {
             if (cantEats.isIn(menu)) {
                 continue;
             }
-            if (!menuPool.add(menu)) {
+            if (menuPool.add(menu)) {
                 break;
             }
             menu = category.getMenu();

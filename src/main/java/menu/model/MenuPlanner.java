@@ -1,4 +1,4 @@
-package menu;
+package menu.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -6,8 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 import menu.exception.CategoryException;
-import menu.model.Coaches;
-import menu.model.PlannedResult;
 import menu.model.menu.Category;
 import menu.model.menu.WeekCategory;
 

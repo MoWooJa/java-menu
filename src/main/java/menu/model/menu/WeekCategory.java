@@ -32,7 +32,7 @@ public class WeekCategory {
         StringBuilder result = new StringBuilder();
         result.append(CATEGORY_HEADER);
         for (Category category : categories) {
-            result.append(SEPARATOR).append(category.name());
+            result.append(SEPARATOR).append(category.getName());
         }
         return result.toString();
     }

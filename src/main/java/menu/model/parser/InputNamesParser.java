@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import menu.exception.ExceptionAnnounce;
 import menu.exception.InputException;
-import menu.model.Names;
 
 public class InputNamesParser {
 
@@ -19,15 +18,13 @@ public class InputNamesParser {
     public static final int MAX_NAME = 4;
     public static final int MIN_NAME = 2;
 
-    public Names parse(String namesInput) {
-        return new Names(validate(namesInput));
+    public List<String> parse(String namesInput) {
+        return validate(namesInput);
     }
 
     private List<String> validate(String namesInput) {
         validateInValidCharacter(namesInput);
         List<String> names = List.of(namesInput.split(SEPARATOR));
-        System.out.println(names.toString());
-        System.out.println(names.size());
         validateNamesSize(names);
         validateDuplicatedNames(names);
         return names.stream()

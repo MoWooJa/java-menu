@@ -12,6 +12,6 @@ public class OutputViewFactory {
     }
 
     public static OutputView createMenuResultOutputView(PlannedResult plannedResult) {
-        return new ResultView(OutputViewType.MENU_RESULT_HEADER.getMessage());
+        return new ResultView(OutputViewType.MENU_RESULT_HEADER.getMessage(), plannedResult);
     }
 }
