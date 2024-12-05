@@ -10,4 +10,10 @@ public class InputValidate {
             throw new IllegalArgumentException(ErrorMessage.NON_COACHES_COUNT_SIZE.getMessage());
         }
     }
+
+    public static void validateInputFoodCount(String[] arrNonFood) {
+        if (arrNonFood.length > 2) {
+            throw new IllegalArgumentException(ErrorMessage.NON_FOOD_SIZE.getMessage());
+        }
+    }
 }
