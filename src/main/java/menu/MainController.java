@@ -2,9 +2,11 @@ package menu;
 
 public class MainController {
     private final InputHandler inputHandler;
+    private final RecommendService recommendService;
 
-    public MainController(InputHandler inputHandler) {
+    public MainController(InputHandler inputHandler, RecommendService recommendService) {
         this.inputHandler = inputHandler;
+        this.recommendService = recommendService;
     }
 
     public void run() {

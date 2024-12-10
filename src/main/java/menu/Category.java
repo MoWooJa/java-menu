@@ -17,6 +17,15 @@ public enum Category {
         this.name = name;
     }
 
+    public static Category getCategoryByIndex(Integer index) {
+        for (Category category : Category.values()) {
+            if (category.index.equals(index)) {
+                return category;
+            }
+        }
+        throw new IllegalArgumentException(INVALID_INPUT.getMessage());
+    }
+
     public static Category of(String name) {
         for (Category category : Category.values()) {
             if (category.name.equals(name)) {
