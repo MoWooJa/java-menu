@@ -77,7 +77,7 @@
 
    ```java
    카테고리에 포함되는 메뉴 목록을 List<String> 형태로 준비한다.
-   String menu = Randoms.shuffle(cantEat).get(0);
+   String menus = Randoms.shuffle(cantEat).get(0);
    ```
 
 - [ ] 

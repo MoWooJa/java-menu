@@ -10,6 +10,15 @@ public enum Category {
     WESTERN(5, "양식");
 
     private final Integer index;
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     private final String name;
 
     Category(Integer index, String name) {

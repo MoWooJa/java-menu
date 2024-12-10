@@ -6,11 +6,13 @@ import java.util.List;
 public class Coach {
     private final String name;
     private List<Menus> cantEat;
+    private List<Menus> eatList;
 
     public Coach(String name) {
         validate(name);
         this.name = name;
         this.cantEat = new ArrayList<>();
+        this.eatList = new ArrayList<>();
     }
 
     public void validate(String name) {
@@ -34,5 +36,27 @@ public class Coach {
         for (String name : names) {
             cantEat.add(Menus.of(name));
         }
+    }
+
+    public boolean cantEat(Menus menu) {
+        if (cantEat.contains(menu)) {
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean canEat(Menus menu) {
+        if (cantEat.contains(menu) || eatList.contains(menu)) {
+            return false;
+        }
+        return true;
+    }
+
+    public void addEatList(Menus menu) {
+        eatList.add(menu);
+    }
+
+    public List<Menus> getEatList() {
+        return eatList;
     }
 }

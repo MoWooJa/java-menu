@@ -14,8 +14,8 @@ public class InputHandler {
         return handle(inputView::askCoachNames);
     }
 
-    public Coaches askCantEatFood(Coaches coaches) {
-        return handle(() -> inputView.cantEatFood(coaches));
+    public Coach askCantEatFood(Coach coach) {
+        return handle(() -> inputView.cantEatFood(coach));
     }
 
 

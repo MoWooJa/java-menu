@@ -10,14 +10,12 @@ public class InputView {
         return InputParser.splitByDelimiter(input);
     }
 
-    public Coaches cantEatFood(Coaches coaches) {
-        for (Coach coach : coaches.getCoaches()) {
-            System.out.printf("%s(이)가 못 먹는 메뉴를 입력해 주세요.", coach.getName());
-            String input = Console.readLine();
-            List<String> foods = InputParser.splitByDelimiterFood(input);
-            coach.addCantEat(foods);
-        }
-        return coaches;
+    public Coach cantEatFood(Coach coach) {
+        System.out.printf("%s(이)가 못 먹는 메뉴를 입력해 주세요.", coach.getName());
+        String input = Console.readLine();
+        List<String> foods = InputParser.splitByDelimiterFood(input);
+        coach.addCantEat(foods);
+        return coach;
     }
 }
 
