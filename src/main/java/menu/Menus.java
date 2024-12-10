@@ -1,26 +1,30 @@
 package menu;
 
-import java.util.Arrays;
-import java.util.List;
+import static menu.ExceptionMessage.*;
 
-public class Menus {
-    private final List<Menu> menus;
+public enum Menus {
+    //일식: 규동, 우동, 미소시루, 스시, 가츠동, 오니기리, 하이라이스, 라멘, 오코노미야끼
+    //한식: 김밥, 김치찌개, 쌈밥, 된장찌개, 비빔밥, 칼국수, 불고기, 떡볶이, 제육볶음
+    //중식: 깐풍기, 볶음면, 동파육, 짜장면, 짬뽕, 마파두부, 탕수육, 토마토 달걀볶음, 고추잡채
+    //아시안: 팟타이, 카오 팟, 나시고렝, 파인애플 볶음밥, 쌀국수, 똠얌꿍, 반미, 월남쌈, 분짜
+    //양식: 라자냐, 그라탱, 뇨끼, 끼슈, 프렌치 토스트, 바게트, 스파게티, 피자, 파니니
 
-    public Menus(List<Menu> menus) {
-        this.menus = menus;
+    GYUDONG(Category.JAPANESE, "규동");
+
+    private final Category category;
+    private final String name;
+
+    Menus(Category category, String name) {
+        this.category = category;
+        this.name = name;
     }
 
-    public void init() {
-        List<String> japanese = Arrays.asList("규동", "우동", "미소시루", "스시", "가츠동", "오니기리", "하이라이스", "라멘", "오코노미야끼");
-        List<String> korean = Arrays.asList("김밥", "김치찌개", "쌈밥", "된장찌개", "비빔밥", "칼국수", "불고기", "떡볶이", "제육볶음");
-        List<String> chinese = Arrays.asList("깐풍기", "볶음면", "동파육", "짜장면", "짬뽕", "마파두부", "탕수육", "토마토", "달걀볶음", "고추잡채");
-        List<String> asian = Arrays.asList("팟타이", "카오 팟", "나시고렝", "파인애플 볶음밥", "쌀국수", "똠얌꿍", "반미", "월남쌈", "분짜");
-        List<String> western = Arrays.asList("라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니");
-
-        menus.add(new Menu(Category.JAPANESE, japanese));
-        menus.add(new Menu(Category.KOREAN, korean));
-        menus.add(new Menu(Category.CHINESE, chinese));
-        menus.add(new Menu(Category.ASIAN, asian));
-        menus.add(new Menu(Category.WESTERN, western));
+    public static Menus of(String name) {
+        for (Menus menu : Menus.values()) {
+            if (menu.name.equals(name)) {
+                return menu;
+            }
+        }
+        throw new IllegalArgumentException("없는메뉴");
     }
 }
