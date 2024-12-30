@@ -30,7 +30,7 @@ public enum MenuCategory {
         this.menuItems = menuItems;
     }
 
-    public MenuCategory getCategoryById(int id) {
+    public static MenuCategory getCategoryById(int id) {
         for (MenuCategory menuCategory : MenuCategory.values()) {
             if (menuCategory.id == id) {
                 return menuCategory;
